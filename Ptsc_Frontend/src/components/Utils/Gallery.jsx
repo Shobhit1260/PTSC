@@ -30,18 +30,38 @@ const prevImage=()=>{
     setCurrentIndex((currentIndex) => (currentIndex - 1 + images.length) % images.length);
 }
   return (
-    <div className='h-[800px] w-[800] m-4 relative'>
-       <div className='inset-0 absolute opacity-80'> 
-        <img src={images[currentIndex].url} alt={images[currentIndex].alt} className="w-full h-full object-fit"/>
-       </div>
-       <div className='absolute inset-0 flex items-center justify-between p-4 opacity-90'>
-            
-            <button onClick={prevImage} className='outline-none text-4xl font-bold text-white bg-gray-700 rounded-2xl p-4'><FaArrowLeftLong /></button>
-            <button onClick={nextImage} className='outline-none text-4xl font-bold text-white bg-gray-700 rounded-2xl p-4'><FaArrowRight /></button>
-       </div>
-          
+    <div className='relative w-full mx-auto mt-32 p-4 rounded-lg shadow-lg flex flex-col justify-center items-center gap-4'>
+  {/* Title */}
+  <div className='font-bold text-center font-serif text-3xl sm:text-4xl my-8'>
+    Event Gallery
+  </div>
 
-    </div>
+  {/* Image Display */}
+  <div className='w-full aspect-[5/6] sm:aspect-video rounded-lg shadow-lg overflow-hidden '>
+    <img
+      src={images[currentIndex].url}
+      alt={images[currentIndex].alt}
+      className="w-full h-full object-fit rounded-lg"
+    />
+  </div>
+
+  {/* Buttons */}
+  <div className='absolute inset-0 w-full flex justify-between items-center gap-4 mt-6 px-4 sm:px-8'>
+    <button
+      onClick={prevImage}
+      className='outline-none text-2xl sm:text-4xl font-bold text-white bg-gray-700 rounded-2xl p-3 sm:p-4'
+    >
+      <FaArrowLeftLong />
+    </button>
+    <button
+      onClick={nextImage}
+      className='outline-none text-2xl sm:text-4xl font-bold text-white bg-gray-700 rounded-2xl p-3 sm:p-4'
+    >
+      <FaArrowRight />
+    </button>
+  </div>
+</div>
+
   )
 }
 

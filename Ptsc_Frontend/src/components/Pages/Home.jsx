@@ -1,7 +1,8 @@
 import React from 'react'
-import Navbar from './Navbar';
-import CountDown from './Utils/CountDown';
-import Gallery from './Utils/Gallery';
+import Navbar from '../Navbar';
+import CountDown from '../Utils/CountDown';
+import Gallery from '../Utils/Gallery';
+import Cards from '../Utils/Cards';
 
 
 function Home() {
@@ -21,8 +22,8 @@ function Home() {
        {/* Latest Event */}
        <section>
             <div className="bg-blue-500 w-11/12 h-min shadow-lg rounded-lg mx-auto mt-16 mb-16">
-            <div className='flex justify-between items-center h-64'>
-                <div className='w-1/2 flex flex-col justify-between items-start p-8 gap-8 font-bold text-white text-2xl'>
+            <div className='flex justify-between items-center h-48 p-4'>
+                <div className='w-1/2 flex flex-col justify-between items-start p-4 gap-8 font-bold text-white text-2xl'>
                     <div className="">Next Event : Hackathon 2025</div>
                     <div className='w-11/12 text-red-500'><CountDown/> </div>
                 </div>
@@ -32,16 +33,20 @@ function Home() {
              </div>     
             </div>
        </section>
-{/* Event Gallery */}
-       <section>
-           <div className=' m-4 mt-48'>
-                    <h1 className='font-bold mx-auto text-center font-serif text-4xl my-8'>Event Gallery</h1>
-                  
+
+{      /* Event Gallery */}
+        <section>
             <Gallery/>
-            
-           </div>
+        </section>
+
+        {/* Cards */}
+       <section>
+          <div className='w-full  flex justify-center items-center gap-4 mt-24 mb-8'>
+            <Cards title="Events" description="Checkout our upcoming events and workshops"  buttonText="View Events"/>
+            <Cards title="Resources" description="Acsess Learning Resources and Tutorials"  buttonText="Browse Resources"/>
+            <Cards title="LeaderBoard" description="See Top performers in LeaderBoard"  buttonText="View Ranking"/>
+          </div>
        </section>
-       
     </div>
   )
 }
